@@ -1,0 +1,22 @@
+.image-block {
+    height: 200px;
+}
+
+.primary-image {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.primary-image img {
+    height: 100%;
+    width: 100%;
+}
+
+.image-edit-button {
+    position: absolute !important;
+    right: 40px;
+    bottom: 20px;
+    z-index: 100;
+    color: black;
+}

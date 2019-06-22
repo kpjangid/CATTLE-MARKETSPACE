@@ -1,0 +1,51 @@
+<div class="bg-light" style="min-height: 100vh;">
+  <app-nav-header [routerValue]="'farmer/home/cattle'" [moduleName]="'Add Calf'"></app-nav-header>
+  <div class="row bg-white">
+    <div class="col-12 image-block d-flex justify-content-center">
+      <button *ngIf="!srcTarget" mat-button class="bg-light align-self-center" type="button" (click)="fileInput.click()">
+        <mat-icon>add</mat-icon> ADD IMAGE</button>
+      <input type="file" hidden (change)="onFileSelected()" #fileInput id="file">
+      <div class="primary-image" *ngIf="srcTarget">
+        <img [src]="srcTarget" alt="">
+      </div>
+      <button *ngIf="srcTarget" mat-mini-fab class="image-edit-button bg-light" (click)="fileInput.click()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="row p-5">
+    <div class="col-12">
+      <form #calfAddForm="ngForm">
+        <div class="row">
+          <div class="col-12">
+            <p>What is your cattle's name ?</p>
+            <mat-form-field>
+              <input matInput ngModel type="text" name="cowName" placeholder="Cattle Name" required>
+            </mat-form-field>
+          </div>
+
+          <div class="col-12 mt-3">
+            <p>When is your cattle born ?</p>
+            <mat-form-field>
+              <input matInput ngModel [matDatepicker]="picker2" name="dob" placeholder="Cattle Birth Date" id="cowBornDate"
+                required>
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <button mat-raised-button color="warn" class="app-btn app-btn-full fixed-in-bottom" (click)="saveCattle()" [disabled]="!calfAddForm.valid">SAVE</button>
+    </div>
+  </div>
+</div>
+
+<div class="spinner-div" *ngIf="progress">
+  <mat-spinner class="custom-spinner" color="warn"></mat-spinner>
+</div>

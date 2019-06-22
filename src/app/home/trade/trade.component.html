@@ -1,0 +1,31 @@
+<div class="row recent-transaction-box">
+
+    <div *ngIf="avarageSalePriceOfCow" class="col-12 d-flex mb-3 p-2 bg-white pl-3 pr-3 recent-transaction-item">
+        <div class="">
+            Cow - Avarage Sale Price
+        </div>
+        <div class="ml-auto">
+            <strong>{{avarageSalePriceOfCow}}</strong>
+        </div>
+    </div>
+
+    <div *ngIf="avarageSalePriceOfMilk" class="col-12 d-flex mb-3 p-2 bg-white pl-3 pr-3 recent-transaction-item">
+        <div class="">
+            Milk - Avarage Sale Price
+        </div>
+        <div class="ml-auto">
+            <strong>{{avarageSalePriceOfMilk}}</strong>
+        </div>
+    </div>
+
+    <div class="col-12 d-flex mb-3 p-2 bg-white pl-3 pr-3 recent-transaction-item">
+        <div class="">
+            <p class="m-0">
+                <strong>Cow - Bought</strong>
+            </p>
+            <p class="text-muted m-0">Purchased From - Ravi kishan</p>
+            <p class="m-0">Price : 300 </p>
+        </div>
+    </div>
+
+</div>

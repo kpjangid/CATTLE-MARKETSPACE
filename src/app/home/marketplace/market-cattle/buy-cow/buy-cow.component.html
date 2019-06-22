@@ -1,0 +1,53 @@
+<div class="row mt-3 mb-5">
+  <div class="col-12">
+    <div class="col-12" *ngFor="let cowListItem of cowList">
+      <p>{{cowListItem['title']}}</p>
+      <mat-card class="cattle-card d-flex mb-3" *ngFor="let item of cowListItem['filterCowList']">
+        <div class="image align-self-stretch">
+          <img [src]="item.imageData" alt="cattle-image">
+        </div>
+        <div class="cattle-text align-self-stretch d-flex flex-column">
+          <div class="font-weight-bold" style="font-size: 1.1em;">{{item.cowName | uppercase}}</div>
+          <div class="">Age : {{item.dob | calculator}}</div>
+          <div class="">Price :
+            <span class="font-weight-bold">{{item.sellingPrice}}</span>
+          </div>
+          <div class="mt-auto d-flex">
+            <span>Health Certificate</span>
+            <span class="ml-2" [ngSwitch]="item.healthFlag">
+              <!-- <mat-icon class="text-warning" *ngSwitchCase="pending">error</mat-icon> -->
+              <mat-icon class="text-success" *ngSwitchCase="'Green'">check_box</mat-icon>
+              <mat-icon class="text-danger" *ngSwitchCase="'Red'">cancel</mat-icon>
+              <mat-icon class="text-warning" *ngSwitchDefault>error</mat-icon>
+            </span>
+          </div>
+        </div>
+        <div class="ml-auto">
+          <button mat-icon-button color="warn" [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="offerNewClicked(item)">Offer New Price</button>
+          </mat-menu>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<div class="bg-white" style="position: fixed; bottom: 0px; left: 0px; width: 100vw;">
+  <div class="row filter-div">
+    <div class="col-12">
+      <mat-grid-list cols="3" class="border-top-light" rowHeight="50px">
+        <mat-grid-tile (click)="breadFilter()" matRipple>Breed
+          <span *ngIf="filterData.breed" class="text-warning"> (1)</span>
+        </mat-grid-tile>
+        <mat-grid-tile (click)="tehsilFilter()" matRipple class="border-left-light border-right-light">Tehsil
+          <span *ngIf="filterData.tehsil" class="text-warning"> (1)</span>
+        </mat-grid-tile>
+        <mat-grid-tile (click)="ageFilter()" matRipple>Age
+          <span *ngIf="filterData.minAge || filterData.maxAge" class="text-warning"> (1)</span>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+</div>

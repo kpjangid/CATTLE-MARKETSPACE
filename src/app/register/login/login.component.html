@@ -1,0 +1,38 @@
+<app-gray-header></app-gray-header>
+<div class="row p-5">
+  <div class="col-12 d-flex p-0" style="margin-left: -7px;">
+    <button mat-button class="border-right" color="warn">Sign In</button>
+    <button mat-button class="border-left" (click)="navigate()">Sign Up</button>
+    <button class="ml-auto" mat-button color="warn">Hindi</button>
+  </div>
+
+  <div class="col-12 mb-4 mt-2">
+    <p>Share the following details to login farmer account
+      <span>
+        <button mat-button color="warn" (click)="goToMain()">Change</button>
+      </span>
+    </p>
+  </div>
+
+  <div class="col-12">
+    <form #farmerLoginForm="ngForm" (submit)="onSubmitLogin()">
+      <div class="row">
+
+        <div class="col-12">
+          <mat-form-field>
+            <input matInput ngModel type="text" name="identifier" placeholder="Mobile Number" required>
+          </mat-form-field>
+        </div>
+
+        <div class="col-12 mt-3">
+          <button mat-raised-button class="app-btn app-btn-full" color="warn" type="submit" [disabled]="!farmerLoginForm.valid">Send OTP</button>
+        </div>
+
+        <div class="col-12 text-center mt-3">
+          <p>By Signing in, you agree to our Privacy Policy</p>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

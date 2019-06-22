@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Make Offer</h1>
+<div mat-dialog-content>
+  <p>Please Enter Your Offer Price</p>
+  <form #offerPriceForm="ngForm">
+    <mat-form-field>
+      <input matInput type="text" ngModel name="offerPrice" placeholder="Enter Offer Price" required>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="warn" (click)="makeOfferPrice()" [disabled]="!offerPriceForm.valid">Offer Price</button>
+</div>
+
+<div class="spinner-div" *ngIf="progress">
+  <mat-spinner class="custom-spinner" color="warn"></mat-spinner>
+</div>

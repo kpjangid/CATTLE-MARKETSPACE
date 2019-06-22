@@ -1,0 +1,7 @@
+.otp-list input, .otp-list input:active, .otp-list input:hover, .otp-list input:focus {
+    margin: 0px 5px;
+}
+
+.secret-key {
+    word-break: break-all;
+}

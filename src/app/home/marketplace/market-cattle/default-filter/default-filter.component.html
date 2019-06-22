@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Customise</h1>
+<div mat-dialog-content>
+
+  <form #defaultFilterForm="ngForm">
+
+    <mat-grid-list cols="2">
+      <mat-grid-tile>
+        <p>Tehsil</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p>Breed</p>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="2">
+      <mat-grid-tile>
+        <mat-radio-group ngModel name="selectedTehsil">
+          <mat-radio-button class="ml-3" *ngFor="let tehsil of tehsilList" [value]="tehsil">
+            {{tehsil}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-radio-group ngModel name="selectedBreed">
+          <mat-radio-button class="ml-3" *ngFor="let breed of breedList" [value]="breed">
+            {{breed}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-form-field>
+      <input type="text" matInput ngModel name="minAge" placeholder="Enter Min Age" id="minAge" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text" matInput ngModel name="maxAge" placeholder="Enter Max Age" id="maxAge" required>
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="warn" (click)="applyFilter()" [disabled]="!defaultFilterForm.valid">Apply</button>
+</div>

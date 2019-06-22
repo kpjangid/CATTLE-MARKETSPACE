@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; background-color: white;}
+
+button:focus, a:focus, .btn:focus, .btn:active {
+    text-decoration: none !important;
+    outline: 0px;
+}
+
+.button-row button, .button-row a {
+  margin-right: 8px;
+}
+
+.dropdown-menu {
+  visibility: visible;
+}
+
+.open .dropdown-menu {
+  visibility: hidden;
+}
+
+.active-font {
+  color : #ff5733;
+}
+
+.active-button {
+  background-color: #ff5733;
+  color: white;
+}
+
+.nav-link {
+  text-transform: none;
+}
+
+.hr-line-5 {
+  height: 100%;
+  width: 5px;
+}

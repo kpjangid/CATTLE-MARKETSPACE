@@ -1,0 +1,273 @@
+<!--Section for My Farm -->
+
+<div class="row mb-2">
+  <div class="col-12">
+    My Farm
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-6">
+    <!--Card for available cow-->
+    <mat-card class="mb-3 p-0" (click)="goToCattleList(null)">
+      <div class="p-3 text-center">
+        <h2 class="m-0">{{totalCowAvailable}}
+          <!-- <span class="font-weight-light font-italic text-muted" style="font-size: 0.7em;">UNIT</span> -->
+        </h2>
+        <p class="m-0 text-muted font-italic">cattle owned</p>
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-6">
+    <!--Card for Available Milk-->
+    <mat-card class="mb-3 p-0">
+      <div class="p-3 text-center">
+        <h2 class="m-0">{{totalMilkAvailable}} L
+          <!-- <span class="font-weight-light font-italic text-muted" style="font-size: 0.7em;">L</span> -->
+        </h2>
+        <p class="m-0 text-muted font-italic">available milk</p>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div class="row mb-3" *ngIf="pendingHealth && pendingHealth.length > 0">
+  <mat-accordion class="col-12">
+    <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle>
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Expired Health Certificates
+          <span class="ml-3 p-0 pl-2 pr-2 bg-danger text-light" style="border-radius: 50%;">{{pendingHealth.length}}</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="col-12 p-0 d-flex recent-transaction-item border-top pb-3 pt-3" *ngFor="let item of pendingHealth">
+        <div class="">
+          <p class="m-0">
+            <strong>{{item.cowId}}</strong>
+          </p>
+          <div class="">
+            <strong>Bid Id : </strong>
+            <span>{{item.cowName}}</span>
+          </div>
+          <div class="">
+            <strong>Age : </strong>
+            <span>{{item.cowAge | calculator}}</span>
+          </div>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="row">
+  <div class="col-12 p-0">
+    <hr>
+  </div>
+</div>
+
+<!--Section for Market Place-->
+
+<!-- <div class="row mb-3" *ngFor="let item of notificationListOfTransferCow">
+  <mat-accordion class="col-12">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setTime(0)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="col-12 p-0 d-flex">
+            <div>
+              <strong>{{item.cowId}} </strong>
+            </div>
+            <div class="ml-auto">Available Bids :
+              <span class="p-0 pl-2 pr-2 bg-dark text-light" style="border-radius: 50%;">{{item.bids.length}}</span>
+            </div>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="col-12 p-0 d-flex recent-transaction-item border-top pb-3 pt-3" *ngFor="let bid of item.bids">
+        <div>
+          <div>
+            <strong>Bid Id : </strong>
+            <span>{{bid.bidId}}</span>
+          </div>
+          <div>
+            <strong>Offer Price : </strong>
+            <span>{{bid.amount}}</span>
+          </div>
+        </div>
+        <div class="ml-auto d-flex">
+          <button mat-raised-button color="warn" (click)="transferCow(bid)">Transfer Cow</button>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="row mb-3" *ngIf="notificationList">
+  <mat-accordion class="col-12">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Accepted Bids
+          <span class="ml-3 p-0 pl-2 pr-2 bg-dark text-light" style="border-radius: 50%;">{{notificationList.length}}</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="col-12 p-0 d-flex recent-transaction-item border-top pb-3 pt-3" *ngFor="let item of notificationList">
+        <div class="">
+          <div class="">
+            <strong>Bid Id : </strong>
+            <span>{{item.bidId}}</span>
+          </div>
+          <div class="" *ngIf="item.status == 'acceptBid'">
+            <strong>Amount : </strong>
+            <span>{{item.amount}}</span>
+          </div>
+        </div>
+        <div class="ml-auto d-flex pb-1">
+          <button mat-raised-button color="warn" class="mt-auto" (click)="makePaymentToBid(item)">Make Payment</button>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="row mb-3" *ngIf="rejectedBidList">
+  <mat-accordion class="col-12">
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Rejected Bids
+          <span class="ml-3 p-0 pl-2 pr-2 bg-dark text-light" style="border-radius: 50%;">{{rejectedBidList.length}}</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="col-12 p-0 d-flex recent-transaction-item border-top pb-3 pt-3" *ngFor="let item of rejectedBidList">
+        <div class="">
+          <div class="">
+            <strong>Bid Id : </strong>
+            <span>{{item.bidId}}</span>
+          </div>
+          <div class="" *ngIf="item.status == 'acceptBid'">
+            <strong>Amount : </strong>
+            <span>{{item.amount}}</span>
+          </div>
+        </div>
+        <div class="ml-auto d-flex pb-1">
+          <button mat-raised-button color="warn" class="mt-auto">Offer New Price</button>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div> -->
+
+<div class="row mb-2" *ngIf="bidsList">
+  <div class="col-12">
+    Market Place
+  </div>
+</div>
+
+<div class="row mb-3" *ngIf="bidsList">
+  <mat-accordion class="col-12">
+    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Cattle Ongoing Bids
+          <span class="ml-3 p-0 pl-2 pr-2 bg-dark text-light" style="border-radius: 50%;">{{bidsList.length}}</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="col-12 p-0 recent-transaction-item border-top pb-3 pt-3" *ngFor="let item of bidsList">
+        <div class="">
+          <p class="m-0">
+            <strong>{{item.cowId}}</strong>
+          </p>
+          <div class="">
+            <strong>Bid Id : </strong>
+            <span>{{item.bidId}}</span>
+          </div>
+          <div class="">
+            <strong>Amount : </strong>
+            <span>{{item.amount}}</span>
+          </div>
+          <div class="" *ngIf="item['status'] === 'reject'">
+            <strong>Status : </strong>
+            <span>Rejected</span>
+            <span class="ml-2 font-italic text-muted">( {{item['reason']}} )</span>
+          </div>
+        </div>
+        <div class="d-flex mt-2">
+          <button class="ml-auto" *ngIf="item['status'] === 'reject'" mat-raised-button color="warn" (click)="makeOfferOnBid(item)">Offer New Price</button>
+          <button class="ml-auto" *ngIf="item['status'] === 'acceptBid'" mat-raised-button color="warn" (click)="makePaymentToBid(item)">Make Payment</button>
+          <button class="ml-auto" mat-button color="warn" (click)="removeBid(item)">Remove Bid</button>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="row mb-3" *ngFor="let item of cowOnBidList">
+  <mat-accordion class="col-12">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setTime(0)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="col-12 p-0 d-flex">
+            <div>
+              <strong>{{item.cowId}} </strong>
+            </div>
+            <div class="ml-auto">Available Bids :
+              <span class="p-0 pl-2 pr-2 bg-dark text-light" style="border-radius: 50%;">{{item.bids.length}}</span>
+            </div>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="col-12 p-0 d-flex recent-transaction-item border-top pb-3 pt-3" *ngFor="let bid of item.bids">
+        <div>
+          <div>
+            <strong>Bid Id : </strong>
+            <span>{{bid.bidId}}</span>
+          </div>
+          <div>
+            <strong>Offer Price : </strong>
+            <span>{{bid.amount}}</span>
+          </div>
+        </div>
+        <div class="ml-auto d-flex">
+
+          <button *ngIf="item['status'] === 'transfer'" mat-raised-button color="warn" (click)="transferCow(bid)">Transfer Cow</button>
+
+          <button class="mb-auto" mat-icon-button color="warn" [matMenuTriggerFor]="bidCowMenu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #bidCowMenu="matMenu">
+            <button mat-menu-item (click)="acceptBid(bid)">Accept Bid</button>
+            <button mat-menu-item (click)="rejectBid(bid)">Reject Bid</button>
+          </mat-menu>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<!-- <div class="row mb-3" *ngIf="cattleAvailableOnSale">
+  <mat-accordion class="col-12">
+    <mat-expansion-panel [expanded]="false" hideToggle (click)="goToCattleList('OnSale')">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Cattle on sale
+          <span class="ml-3 p-0 pl-2 pr-2 bg-dark text-light" style="border-radius: 50%;">{{cattleAvailableOnSale}}</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div> -->
+
+<div class="spinner-div" *ngIf="progress">
+  <mat-spinner class="custom-spinner" color="warn"></mat-spinner>
+</div>

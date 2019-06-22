@@ -1,0 +1,176 @@
+.active-font {
+    color : #ff5733;
+}
+
+.full-page-section {
+    min-height: 100vh;
+    background-color: white;
+}
+  
+ .active-button {
+    background-color: #ff5733;
+    color: white;
+ }
+  
+ .nav-link {
+    text-transform: none;
+ }
+  
+ .hr-line-5 {
+    height: 100%;
+    width: 5px;
+ }
+
+ .section-header {
+     font-size: 20px;
+     color: #ff5733;
+     margin-bottom: 15px;
+ }
+
+ .otp-list input, .otp-list input:active, .otp-list input:hover, .otp-list input:focus {
+     width: 60px;
+     height: 50px;
+     border : 1px solid gray;
+     border-radius: 3px;
+     margin-right: 15px;
+     padding-left: 25px;
+ }
+
+.app-btn {
+    border-radius: 25px;
+    text-transform: uppercase;
+}
+
+.app-btn-full {
+    width: 100%;
+}
+
+.mat-toolbar, .mat-toolbar.mat-primary {
+    background: #ff5733;
+    color: white;
+}
+
+.fixed-in-bottom {
+    position: fixed !important;
+    bottom: 20px;
+    width: 80vw;
+    left: 10vw;
+}
+
+.image-block {
+    height: 200px;
+}
+
+.primary-image {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.primary-image img {
+    height: 100%;
+    width: 100%;
+}
+
+.image-edit-button {
+    position: absolute !important;
+    right: 40px;
+    bottom: 20px;
+    z-index: 100;
+    color: black;
+}
+
+.list-input {
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+.border-top-light {
+    border-top : 1px solid #D5D8DC;
+}
+
+.border-bottom-light {
+    border-bottom : 1px solid #D5D8DC;
+}
+
+.border-left-light {
+    border-left : 1px solid #D5D8DC;
+}
+
+.border-right-light {
+    border-right : 1px solid #D5D8DC;
+}
+
+.full-width {
+    width: 100vw;
+}
+
+.filter-div .active {
+    box-shadow: inset 0px 4px 0px 0px #ff5733;
+}
+
+.cattle-card {
+    height: 130px;
+    padding: 10px !important;
+}
+
+.cattle-card .image {
+    width: 120px;
+    border-radius: 5px;
+    background-color: #EEEEEE;
+}
+
+.cattle-card .image img{
+    height: 100%;
+    width: 100%;
+}
+
+.cattle-card .cattle-text {
+    padding: 5px 15px;
+}
+
+.spinner-div {
+    height: 100vh;
+    width: 100vw;
+    position: fixed !important;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+}
+
+.custom-spinner {
+    margin: 25% auto;
+    height: 60px;
+}
+
+.star {
+    font-size: 2rem;
+    color: #b0c4de;
+}
+
+.filled {
+    color: #1e90ff;
+}
+
+.bad {
+    color: #deb0b0;
+}
+
+.filled.bad {
+    color: #ff1e1e;
+}
+
+.half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: red;
+}
+
+.doctor-theme .nav-header {
+    background-color: #2196f3 !important;
+}

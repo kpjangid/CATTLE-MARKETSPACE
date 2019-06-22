@@ -1,0 +1,41 @@
+<div class="p-3">
+  <div class="row">
+    <div class="col-12 mb-3" *ngFor="let item of cowOnTransferList">
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setTime(0)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div class="col-12 p-0 d-flex">
+                <div>
+                  <strong>{{item.cowId}} </strong>
+                </div>
+                <div class="ml-auto">Available Bids :
+                  <span class="p-0 pl-2 pr-2 bg-dark text-light" style="border-radius: 50%;">{{item.bids.length}}</span>
+                </div>
+              </div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="col-12 p-0 d-flex recent-transaction-item border-top pb-3 pt-3" *ngFor="let bid of item.bids">
+            <div>
+              <div>
+                <strong>Bid Id : </strong>
+                <span>{{bid.bidId}}</span>
+              </div>
+              <div>
+                <strong>Offer Price : </strong>
+                <span>{{bid.amount}}</span>
+              </div>
+            </div>
+            <div class="ml-auto d-flex">
+              <button mat-raised-button color="warn" (click)="transferCow(bid)">Transfer Cow</button>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>
+
+<div class="spinner-div" *ngIf="progress">
+  <mat-spinner class="custom-spinner" color="warn"></mat-spinner>
+</div>

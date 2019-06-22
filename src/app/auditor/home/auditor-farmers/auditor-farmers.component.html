@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-12">
+    <table class="table">
+      <thead>
+        <tr class="font-weight-bold">
+          <th scope="col">#</th>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Aadhar</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of farmerList; let i = index ">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{item['farmerId'] | limiting : 10}}</td>
+          <td>{{item['name']}}</td>
+          <td>{{item['aadharId'] | limiting : 10}}</td>
+          <td>{{item['mobile']}}</td>
+          <td>{{item['state']}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-12">
+
+    <mat-grid-list cols="2">
+      <mat-grid-tile>
+        <mat-radio-group [(ngModel)]="selectedBreed">
+          <mat-radio-button class="ml-3" *ngFor="let breed of breedList" [value]="breed">
+            {{breed}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button color="warn" (click)="applyFilter()">
+          Apply
+        </button>
+        <button mat-raised-button class="ml-1" (click)="clearFilter()">
+          Clear
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </div>
+</div>

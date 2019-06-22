@@ -1,0 +1,45 @@
+<div class="bg-light" style="min-height: 100vh;">
+    <app-nav-header [routerValue]="'farmer/home/cattle'" [moduleName]="'Edit Cattle'"></app-nav-header>
+    <div class="row bg-white">
+      <div class="col-12 image-block d-flex justify-content-center">
+        <button *ngIf="!srcTarget" mat-button class="bg-light align-self-center" type="button" (click)="fileInput.click()">
+          <mat-icon>add</mat-icon> ADD IMAGE</button>
+          <input type="file" hidden (change)="onFileSelected()" #fileInput id="file">
+          <div class="primary-image" *ngIf="srcTarget"><img [src]="srcTarget" alt=""></div>
+          <button *ngIf="srcTarget" mat-mini-fab class="image-edit-button bg-light" (click)="fileInput.click()"><mat-icon>edit</mat-icon></button>
+      </div>
+    </div>
+    <div class="row p-5">
+      <div class="col-12">
+        <form #cattleAddForm="ngForm">
+          <div class="row">
+            <div class="col-12">
+              <p>What is the cattle name ?</p>
+              <mat-form-field>
+                <input matInput ngModel type="text" name="cowName" placeholder="Cow Name" required>
+              </mat-form-field>
+            </div>
+  
+            <div class="col-12 mt-5">
+              <p>When is the cattle born ?</p>
+              <mat-form-field>
+                <input matInput ngModel type="text" name="cowBornDate" placeholder="Cow Born Date" required>
+              </mat-form-field>
+            </div>
+  
+            <div class="col-12 mt-5">
+              <mat-form-field>
+                <input matInput ngModel type="text" name="cowBirthDate" placeholder="Birth Date (Optional)">
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-12">
+        <button mat-raised-button color="warn" class="app-btn app-btn-full fixed-in-bottom" (click)="saveCattle()">SAVE</button>
+      </div>
+    </div>
+  </div>

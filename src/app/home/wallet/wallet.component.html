@@ -1,0 +1,68 @@
+<div *ngIf="amountBalance; else registerBlock" class="bg-light" style="min-height: 100vh;margin-top: -15px;">
+
+  <div class="row bg-white p-4 text-center">
+    <div class="col-12">
+      <!-- <div class="mb-2">
+        <h3>Rating :
+          <span>
+            <mat-icon>star_rate</mat-icon>
+          </span> {{rating}} | {{ratingCount}}
+        </h3>
+      </div> -->
+      <h2 class="font-weight-bold">
+        {{amountBalance}}</h2>
+      <p>Your available balance</p>
+      <button mat-raised-button color="warn" class="app-btn app-btn-full mb-2" (click)="addBalance()">Add Money</button>
+    </div>
+  </div>
+
+  <div class="row recent-purchased-box">
+    <div class="col-12 p-2 pl-3 pr-3 bg-dark text-light">
+      Recents
+    </div>
+    <div class="col-12 p-2 pl-3 pr-3 recent-purchased-item" *ngFor="let creditItem of transactionHistoryList[0]" (click)="getRating(creditItem)">
+
+      <div class="d-flex">
+        <div>
+          <p class="m-0" title="creditItem.paymentFrom">{{creditItem.paymentFrom | limiting : 20}}</p>
+        </div>
+        <div class="ml-auto text-success">
+          <strong> + {{creditItem.amount}}</strong>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-12 p-2 pl-3 pr-3 recent-purchased-item" *ngFor="let debitItem of transactionHistoryList[1]">
+      <div class="d-flex">
+        <div>
+          <p class="m-0" title="debitItem.paymentTo">{{debitItem.paymentTo | limiting : 20}}</p>
+          <button class="m-1" *ngIf="debitItem['rate']==='false'" mat-raised-button color="warn" (click)="giveRating(debitItem)">Rate</button>
+        </div>
+        <div class="ml-auto text-danger">
+          <strong> - {{debitItem.amount}}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #registerBlock>
+  <div class="bg-light" style="min-height: 100vh;margin-top: -15px;">
+
+    <div class="row bg-white p-4 text-center">
+      <div class="col-12">
+        <h2 class="font-weight-bold">
+          Not Registered</h2>
+        <p>Please Click Below To Register</p>
+        <button mat-raised-button color="warn" class="app-btn app-btn-full mb-2" (click)="registerWallet()">Register Wallet</button>
+      </div>
+    </div>
+
+  </div>
+</ng-template>
+
+<div class="spinner-div" *ngIf="progress">
+  <mat-spinner class="custom-spinner" color="warn"></mat-spinner>
+</div>

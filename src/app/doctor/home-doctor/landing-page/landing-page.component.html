@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-12">
+    <mat-card class="cattle-card d-flex mb-3" *ngFor="let item of cattleList">
+      <div class="image align-self-stretch">
+        <img [src]="item.imageData" alt="cattle-image">
+      </div>
+      <div class="cattle-text align-self-stretch d-flex flex-column">
+        <div class="font-weight-bold" style="font-size: 1.1em;">{{item.cowName | uppercase}}</div>
+        <div class="font-weight-bold" style="font-size: 0.6em;">Farmer Address : {{item.farmerAddress}}</div>
+        <div class="" style="font-size: 0.8em;">Age : {{item.cowAge | calculator}}</div>
+        <div class="mt-auto">
+          <button mat-raised-button color="primary" (click)="navigateToUpdateCow(item.cowId)">Update Certificate</button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div class="row" *ngIf="noCattleForApproval">
+  <div class="col-12">
+    <h3 class="text-center text-muted">No approvals in queue</h3>
+  </div>
+</div>
+
+<div class="spinner-div" *ngIf="progress">
+  <mat-spinner class="custom-spinner" color="primary"></mat-spinner>
+</div>

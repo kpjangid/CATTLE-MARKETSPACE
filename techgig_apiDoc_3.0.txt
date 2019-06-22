@@ -1,0 +1,248 @@
+﻿api list
+
+BASE LOCATION = http://10.64.253.214:8080/MarketPlaceJavaApp/rest/api
+
+1) RegisterFarmer
+
+Method=POST
+URI= BASE LOCATION+ /farmer/registerProfile
+Header > Content-Type= application/json
+
+Request Json
+{
+  "name":"Mat Johnson",
+  "aadharId":"2123413441",
+  "cellNumber":"999087418",
+  "state":"UP",
+  "district":"Noida",
+  "tehsil":"oldroad",
+  "dob":"327237676",
+  "gender":"M"
+}
+
+Response
+
+{
+    "key": "0‚\u0001K\u0002\u0001\u00000‚\u0001,\u0006\u0007*†HÎ8\u0004\u00010‚\u0001\u001f\u0002\ufffd\ufffd\u0000ý\u007fS\ufffd\u001du\u0012)RßJœ.ìäçö\u0011·R<ïD\u0000Ã\u001e?€¶Q&iE]@\"QûY=\ufffdXú¿Åõº0öË›Ul×\ufffd;€\u001d4oòf`·k™P¥¤ŸŸè\u0004{\u0010\"ÂO»©×þ·Æ\u001bø;WçÆ¨¦\u0015\u000f\u0004ûƒöÓÅ\u001eÃ\u00025T\u0013Z\u0016‘2öuó®+a×*ïò\"\u0003\u0019\ufffdÑH\u0001Ç\u0002\u0015\u0000—`P\ufffd\u0015#\u000bÌ²’¹‚¢ë„\u000bðX\u001cõ\u0002\ufffd\ufffd\u0000÷á …Ö›=ÞË¼«\\6¸W¹y”¯»ú:ê‚ùWL\u000b=\u0007‚gQYWŽºÔYOæq\u0007\u0010\ufffd€´I\u0016q#èL(\u0016\u0013·Ï\t2ŒÈ¦á<\u0016z‹T|\ufffd(à£®\u001e+³¦u‘n£\u007f\u000bú!5bñûbz\u0001$;Ì¤ñ¾¨Q\ufffd‰¨ƒßáZåŸ\u0006’‹f^€{U%d\u0001L;þÏI*\u0004\u0016\u0002\u0014v|ÙÝa@ÕÍ×ŽP¥‹9¹´ôX¬÷",
+    "farmerId": "19efc7b46cef2c5d065a6a92abfde168bad78a6f0274fb5fcd00d959a14ee091557990883"
+}
+==============================================================================================================================
+
+2) Add a cow
+
+Method=POST
+URI= BASE LOCATION+ /farmer/addCow
+Header > Content-Type= application/json
+Request Json
+
+{
+	"pic": "/9j/4AAQSkZJRgABAQEBLAEsAAD/4QAiRXhpZgAATU0AKgAAAAgAAQESAAMAAAABAAEAAAAAAAD/4QKaaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPg0KCTxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6SXB0YzR4bXBDb3JlPSJodHRwOi8vaXB0Yy5vcmcvc3RkL0lwdGM0eG1wQ29yZS8xLjAveG1sbnMvIiB4bWxuczpHZXR0eUltYWdlc0dJRlQ9Imh0dHA6Ly94bXAuZ2V0dHlpbWFnZXMuY29tL2dpZnQvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwbHVzPSJodHRwOi8vbnMudXNlcGx1cy5vcmcvbGRmL3htcC8xLjAvIiB4bWxuczppcHRjRXh0PSJodHRwOi8vaXB0Yy5vcmcvc3RkL0lwdGM0eG1wRXh0LzIwMDgtMDItMjkvIiBwaG90b3Nob3A6Q3JlZGl0PSJHZXR0eSBJbWFnZXMvaVN0b2NrcGhvdG8iIEdldHR5SW1hZ2VzR0lGVDpBc3NldElEPSIxMDY1MzE3ODgiPg0KCQk8ZGM6Y3JlYXRvcj48cmRmOlNlcT48cmRmOmxpPkdsb2JhbFA8L3JkZjpsaT48L3JkZjpTZXE+PC9kYzpjcmVhdG9yPg0KCTwvcmRmOkRlc2NyaXB0aW9uPg0KPC9yZGY6UkRGPg0KPD94cGFja2V0IGVuZD0ndyc/Pv/iAehJQ0NfUFJPRklMRQABAQAAAdgAAAAAAhAAAG1udHJSR0IgWFlaIAAAAAAAAAAAAAAAAGFjc3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAD21gABAAAAANMtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACWRlc2MAAADwAAAANHJYWVoAAAEkAAAAFGdYWVoAAAE4AAAAFGJYWVoAAAFMAAAAFHJUUkMAAAFgAAAAKGdUUkMAAAFgAAAAKGJUUkMAAAFgAAAAKHd0cHQAAAGIAAAAFGNwcnQAAAGcAAAAPG1sdWMAAAAAAAAAAQAAAAxlblVTAAAAGAAAABwARwBvAG8AZwBsAGUAIABTAGsAaQBhACBYWVogAAAAAAAAnBgAAE+lAAAE/FhZWiAAAAAAAAA0igAAoCoAAA+WWFlaIAAAAAAAACYzAAAQLwAAvq1wYXJhAAAAAAAEAAAAAjMzAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAAAAAAAPbWAAEAAAAA0y1tbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/7QBGUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAACkcAlAAB0dsb2JhbFAcAm4AGEdldHR5IEltYWdlcy9pU3RvY2twaG90bwD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAEaAZoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQA",
+	"state": "UP",
+	"district": "Noida",
+	"tehsil": "oldroad",
+	"farmerId": "19efc7b46cef2c5d065a6a92abfde168bad78a6f0274fb5fcd00d959a14ee091557991871",
+	"dob": "1557487276"
+}
+
+Response
+
+true or false
+=========================================================================================================
+3) get farmer profile
+Method=GET
+URI= BASE LOCATION+ getFarmerProfile/{farmerId}
+
+Response Json
+
+{
+	"type": "sdfs",
+	"name": "Mat Johnson",
+	"aadharId": "2123413441",
+	"mobile": "fdsfsdf",
+	"state": "UP",
+	"district": "Noida",
+	"tehsil": "oldroad",
+	"dob": "327237676",
+	"gender": "M",
+	"farmerId": "19efc7b46cef2c5d065a6a92abfde168bad78a6f0274fb5fcd00d959a14ee091558003129",
+	"publicKey": "0�\u0001�0�\u0001,\u0006\u0007*�H�8\u0004\u00010�\u0001\u001F\u0002��\u0000�S�\u001Du\u0012)R�J�.����\u0011�R<�D\u0000�\u001E?��Q&iE]@\"Q�Y=�X�����0�˛Ulׁ;�\u001D4o�f`�k�P�����\u0004{\u0010\"�O������\u001B�;W�ƨ�\u0015\u000F\u0004�����\u001E�\u00025T\u0013Z\u0016�2�u�+a�*��\"\u0003\u0019��H\u0001�\u0002\u0015\u0000�`P�\u0015#\u000B̲�����\u000B�X\u001C�\u0002��\u0000�᠅֛=�˼�\\6�W�y����:��WL\u000B=\u0007�gQYW���YO�q\u0007\u0010���I\u0016q#�L(\u0016\u0013��\t2�Ȧ�<\u0016z�T|�(࣮\u001E+��u�n�\u000B�!5b��bz\u0001$;̤�Q������Z�\u0006��f^�{U%d\u0001L;��I*\u0003��\u0000\u0002��\u0000�*�\u0002sQ].sJ�����\u0007~B��O���H�ژ\u0000�4\n�~\u000F\u001A�Xt>\u0012/:�'��/\u0016�\u000El�#W�\u0014rM\u0007\u0016\u001B\u0005M4\u001A+D �*k/\u0014C'�����\u0011�\u0012\u0012U<t�\u0015�j�*YE���<�y��*Z�ޏ^pL��zԌo\u001DY>`�4e�"
+}
+
+=========================================================================================================
+
+
+4) Update a cow by Doctor
+
+Method=POST
+URI= BASE LOCATION+ /doctor/updateCow/CowId
+Header > Content-Type= application/json
+Request Json
+
+{
+	"weight": "89kg",
+	"color": "grey",
+	"breed": "jersey",
+	"status": "VERIFIED",
+	"healthRecord": {
+		"checkUpTime": "1557922058",
+		"healthCeritificate": "pic1",
+		"doctorId": "doc1"
+	}
+}
+
+Response
+
+true or false
+
+===========================================================================================================
+5) mark a cow onsale
+Method=GET
+URI= BASE LOCATION+ farmer/markCowOnSale/CowId
+
+Response
+
+true or false
+
+============================================================================================================
+
+6) get all cows for a farmer
+
+Method=GET
+URI= BASE LOCATION+ farmer/getAllCow/farmerId
+Header > Content-Type= application/json
+Response
+
+[{
+	"breed": "jersey",
+	"color": "grey",
+	"cowId": "COW1",
+	"district": "Noida",
+	"dob": "1557487276",
+	"farmerId": "19efc7b46cef2c5d065a6a92abfde168bad78a6f0274fb5fcd00d959a14ee091557919317",
+	"healthFlag": "Green",
+	"healthRecord": "",
+	"lastHealthCheck": "1557922058",
+	"noOfOwner": "X",
+	"noOfbids": "S",
+	"pic": "/9j/4AAQSkZJRgABAQEBLAEsAAD/4QAiRXhpZgAATU0AKgAAAAgAAQESAAMAAAABAAEAAAAAAAD/4QKaaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPg0KCTxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6SXB0YzR4bXBDb3JlPSJodHRwOi8vaXB0Yy5vcmcvc3RkL0lwdGM0eG1wQ29yZS8xLjAveG1sbnMvIiB4bWxuczpHZXR0eUltYWdlc0dJRlQ9Imh0dHA6Ly94bXAuZ2V0dHlpbWFnZXMuY29tL2dpZnQvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwbHVzPSJodHRwOi8vbnMudXNlcGx1cy5vcmcvbGRmL3htcC8xLjAvIiB4bWxuczppcHRjRXh0PSJodHRwOi8vaXB0Yy5vcmcvc3RkL0lwdGM0eG1wRXh0LzIwMDgtMDItMjkvIiBwaG90b3Nob3A6Q3JlZGl0PSJHZXR0eSBJbWFnZXMvaVN0b2NrcGhvdG8iIEdldHR5SW1hZ2VzR0lGVDpBc3NldElEPSIxMDY1MzE3ODgiPg0KCQk8ZGM6Y3JlYXRvcj48cmRmOlNlcT48cmRmOmxpPkdsb2JhbFA8L3JkZjpsaT48L3JkZjpTZXE+PC9kYzpjcmVhdG9yPg0KCTwvcmRmOkRlc2NyaXB0aW9uPg0KPC9yZGY6UkRGPg0KPD94cGFja2V0IGVuZD0ndyc/Pv/iAehJQ0NfUFJPRklMRQABAQAAAdgAAAAAAhAAAG1udHJSR0IgWFlaIAAAAAAAAAAAAAAAAGFjc3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAD21gABAAAAANMtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACWRlc2MAAADwAAAANHJYWVoAAAEkAAAAFGdYWVoAAAE4AAAAFGJYWVoAAAFMAAAAFHJUUkMAAAFgAAAAKGdUUkMAAAFgAAAAKGJUUkMAAAFgAAAAKHd0cHQAAAGIAAAAFGNwcnQAAAGcAAAAPG1sdWMAAAAAAAAAAQAAAAxlblVTAAAAGAAAABwARwBvAG8AZwBsAGUAIABTAGsAaQBhACBYWVogAAAAAAAAnBgAAE+lAAAE/FhZWiAAAAAAAAA0igAAoCoAAA+WWFlaIAAAAAAAACYzAAAQLwAAvq1wYXJhAAAAAAAEAAAAAjMzAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAAAAAAAPbWAAEAAAAA0y1tbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/7QBGUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAACkcAlAAB0dsb2JhbFAcAm4AGEdldHR5IEltYWdlcy9pU3RvY2twaG90bwD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAEaAZoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQA",
+	"state": "UP",
+	"status": "Verified",
+	"tehsil": "oldroad",
+	"type": "COW",
+	"weight": "89kg"
+}]
+
+
+===============================================================================================================
+7) bid for a cow
+Method=POST
+URI= BASE LOCATION+ /auction/bidForCow
+Header > Content-Type= application/json
+Request Json
+
+{
+	"cowId": "COW1",
+	"amount": "8000",
+	"farmerId": "19efc7b46cef2c5d065a6a92abfde168bad78a6f0274fb5fcd00d959a14ee091557121212"
+}
+
+Response
+
+true or false
+
+===============================================================================================================
+8) Get Cows in Auction on the basis of search criteria
+Method=POST
+URI= BASE LOCATION+ auction/searchCow
+Header > Content-Type= application/json
+Response
+{
+	"breed":"jersey",
+	"tehsil":"xyz",
+	"minAge":"0",
+	"maxAge":"8"
+}
+
+Response
+[[],[],[]]
+
+The array will contain, 3 arrays.(Json Array)
+1) In first array, all the cows whose criteria is completely matching 
+
+ 2 and 3 are suggestions form platform
+
+2) In Second array, all the cows whose breed and age matching
+3) In Third array, only breed matching cows
+
+==============================================================================================================
+9) sell milk in the auction
+
+Method=POST
+URI= BASE LOCATION+ farmer/auctionMilk
+Header > Content-Type= application/json
+
+{
+	"quantity": "10",
+	"cowId": "COW2",
+	"farmerId": "19efc7b46cef2c5d065a6a92abfde168bad78a6f0274fb5fcd00d959a14ee09",
+	"basePrice": "200",
+	"OnSale": "true"
+}
+
+Response
+
+true or false
+
+==============================================================================================================
+
+10) Get all milk available for sale in auction
+
+Method=GET
+URI= BASE LOCATION+ auction/searchMilk
+Header > Content-Type= application/json
+
+
+Response
+
+[{
+	"OnSale": "true",
+	"basePrice": "200",
+	"bids": "bid2",
+	"cowId": "COW1",
+	"farmerId": "19efc7b46cef2c5d065a6a92abfde168bad78a6f0274fb5fcd00d959a14ee09",
+	"milkId": "MILK2",
+	"noOfbids": "M",
+	"quantity": "5",
+	"type": "MILK"
+}, {
+	"OnSale": "true",
+	"basePrice": "200",
+	"cowId": "COW2",
+	"farmerId": "19efc7b46cef2c5d065a6a92abfde168bad78a6f0274fb5fcd00d959a14ee09",
+	"milkId": "MILK3",
+	"noOfbids": "S",
+	"quantity": "10",
+	"type": "MILK"
+}]
+
+==============================================================================================================
+11) bid for milk in a auction
+
+Method=POST
+URI= BASE LOCATION+ auction/bidForMilk
+Header > Content-Type= application/json
+
+{
+  "userId":"dairy1",
+  "offerPrice":"180",
+  "milkId":"MILK2"
+}
+
+Response
+
+true or false
+
+
+
+
+

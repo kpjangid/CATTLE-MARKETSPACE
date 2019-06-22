@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-12">
+
+    <mat-grid-list cols="3">
+      <mat-grid-tile>
+        <mat-form-field>
+          <input type="text" matInput [(ngModel)]="minAge" name="minAge" placeholder="Enter Min Age" id="minAge" required>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <input type="text" matInput [(ngModel)]="maxAge" name="maxAge" placeholder="Enter Max Age" id="maxAge" required>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-icon-button color="warn" (click)="applyFilter()">
+          <mat-icon>done</mat-icon>
+        </button>
+        <button mat-icon-button class="ml-1" (click)="clearFilter()">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Buying Information</h1>
+<div mat-dialog-content>
+
+  <div *ngIf="walletRegistered; else walletRegister">
+    <p>Making Payment
+    </p>
+    <p>
+      <span>
+        <strong>Amount : {{amount}}</strong>
+      </span>
+    </p>
+  </div>
+
+  <ng-template #walletRegister>
+    <div>
+      <p class="m-0">Wallet is not registered</p>
+    </div>
+    <div class="">
+      <button mat-raised-button color="warn" (click)="goToRegisterWallet()">Register Now</button>
+      <p class="text-muted mt-2" style="font-size: 0.8em">then continue on Home page</p>
+    </div>
+  </ng-template>
+
+</div>
+<div mat-dialog-actions *ngIf="walletRegistered">
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="warn" (click)="makePayment()">Purchase Cow</button>
+</div>
+
+<div class="spinner-div" *ngIf="progress">
+  <mat-spinner class="custom-spinner" color="warn"></mat-spinner>
+</div>

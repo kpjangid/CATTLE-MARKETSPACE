@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-12">
+    <mat-card class="cattle-card d-flex mb-3" *ngFor="let item of cattleList">
+      <div class="image align-self-stretch">
+        <img [src]="item.imageData" alt="cattle-image">
+      </div>
+      <div class="cattle-text align-self-stretch d-flex flex-column">
+        <div class="font-weight-bold" style="font-size: 1.1em;">{{item.cowName | uppercase}}
+          <span class="text-white ml-2 p-1 pl-2 pr-2 font-weight-light bg-info" style="font-size: 0.8em; border-radius: 3px;" *ngIf="item.OnSale === 'true'">On Sale</span>
+        </div>
+        <div class="">Age : {{item.cowAge | calculator}}</div>
+        <div class="mt-auto d-flex">
+          <span>Health Certificate</span>
+          <span class="ml-2" [ngSwitch]="item.healthStatus">
+            <!-- <mat-icon class="text-warning" *ngSwitchCase="pending">error</mat-icon> -->
+            <mat-icon class="text-success" *ngSwitchCase="'Green'">check_box</mat-icon>
+            <mat-icon class="text-danger" *ngSwitchCase="'Red'">cancel</mat-icon>
+            <mat-icon class="text-warning" *ngSwitchDefault>error</mat-icon>
+          </span>
+        </div>
+      </div>
+      <div class="ml-auto">
+        <button mat-icon-button color="warn" [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="sellButtonClicked(item.cowId, item.cowName)" [disabled]="item.OnSale === 'true' || item['requestHealthCert'] === 'true'">Sell</button>
+          <button mat-menu-item (click)="addCalfButtonClicked(item)">Add Calf</button>
+          <button mat-menu-item (click)="deleteButtonClicked(item.cowId)">Remove</button>
+        </mat-menu>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <button mat-raised-button color="warn" class="app-btn app-btn-full fixed-in-bottom" (click)="addButtonEvent()">Add Cattle</button>
+  </div>
+</div>
+
+<div class="spinner-div" *ngIf="progress">
+  <mat-spinner class="custom-spinner" color="warn"></mat-spinner>
+</div>

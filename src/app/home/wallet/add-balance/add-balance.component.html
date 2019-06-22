@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Balance</h1>
+<div mat-dialog-content>
+
+  <form #addBalanceForm="ngForm">
+
+    <mat-form-field>
+      <input type="text" matInput ngModel name="amount" placeholder="Enter Amount" id="amount" required>
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="warn" (click)="addBalance()" [disabled]="!addBalanceForm.valid">Add Balance</button>
+</div>
+
+<div class="spinner-div" *ngIf="progress">
+  <mat-spinner class="custom-spinner" color="warn"></mat-spinner>
+</div>

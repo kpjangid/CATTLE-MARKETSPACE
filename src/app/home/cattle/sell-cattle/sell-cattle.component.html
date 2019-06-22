@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Selling Information</h1>
+<div mat-dialog-content>
+  <p>I want to sell at</p>
+  <form #sellingForm="ngForm">
+    
+    <mat-form-field>
+      <input matInput type="text" ngModel name="sellingPrice" placeholder="Enter Base Price">
+    </mat-form-field>
+
+    <p id="example-radio-group-label">Delivery to be handled by</p>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" ngModel name="delivery">
+      <mat-radio-button class="example-radio-button mr-3" [value]="'seller'">
+        Me
+      </mat-radio-button>
+      <mat-radio-button class="example-radio-button" [value]="'buyer'">
+        Buyer
+      </mat-radio-button>
+    </mat-radio-group>
+
+  </form>
+
+  <mat-progress-spinner *ngIf="progress"></mat-progress-spinner>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="warn" (click)="sellCow()" [disabled]="!sellingForm.valid">Submit</button>
+</div>
+
+<div class="spinner-div" *ngIf="progress">
+  <mat-spinner class="custom-spinner" color="warn"></mat-spinner>
+</div>
+

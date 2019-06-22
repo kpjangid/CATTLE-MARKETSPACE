@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Farmer Rating</h1>
+<div mat-dialog-content>
+
+  <form #ratingForm="ngForm">
+
+    <div class="text-center">
+      <ngb-rating [(rate)]="rating" max="5">
+        <ng-template let-fill="fill" let-index="index">
+          <span class="star" [class.filled]="fill === 100" [class.bad]="index < 2">
+            &#9733;
+          </span>
+        </ng-template>
+      </ngb-rating>
+    </div>
+
+    <!-- <mat-form-field>
+      <input type="text" matInput ngModel name="rating" placeholder="Enter Rating" id="rating" required>
+    </mat-form-field> -->
+
+    <mat-form-field>
+      <textarea matInput row="5" ngModel name="feedback" placeholder="Enter Feedback" id="feedback" required></textarea>
+    </mat-form-field>
+
+  </form>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="warn" (click)="submitRating()" [disabled]="!ratingForm.valid">Rate Farmer</button>
+</div>
